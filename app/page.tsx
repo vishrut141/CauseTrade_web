@@ -1,9 +1,11 @@
 import {
   ArrowRight,
-  CircleDot,
-  Mail,
-  Radio,
-  Sparkles,
+  Binoculars,
+  HandCoins,
+  Handshake,
+  Layers,
+  SearchCheck,
+  TrendingUp,
   UsersRound
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
@@ -16,6 +18,8 @@ import {
   participationCards,
   principles
 } from "@/lib/content";
+
+const principleIcons = [SearchCheck, Layers, HandCoins, TrendingUp];
 
 export default function Home() {
   return (
@@ -33,7 +37,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mx-auto mb-5 w-fit rounded-full border border-aqua/25 bg-aqua/[0.075] px-4 py-2 text-xs uppercase tracking-[0.32em] text-aqua/90 shadow-[0_0_24px_rgba(125,229,62,0.08)]">
-              The market for what matters.
+              The market for what matters
             </p>
           </Reveal>
           <Reveal delay={0.16}>
@@ -113,7 +117,10 @@ export default function Home() {
           {principles.map((item, index) => (
             <Reveal key={item} delay={index * 0.07}>
               <div className="glass min-h-36 rounded-lg p-6">
-                <CircleDot className="mb-8 h-5 w-5 text-aqua" />
+                {(() => {
+                  const Icon = principleIcons[index] ?? SearchCheck;
+                  return <Icon className="mb-8 h-5 w-5 text-aqua" />;
+                })()}
                 <p className="font-display text-lg leading-7 text-white/88">{item}</p>
               </div>
             </Reveal>
@@ -257,12 +264,12 @@ export default function Home() {
                 body: "A first layer of people who can recognize the shape of the category before the rest of the market does."
               },
               {
-                icon: Mail,
+                icon: Binoculars,
                 title: "Quiet signals",
                 body: "Selective updates for people following what is forming, without noise, urgency, or performance."
               },
               {
-                icon: Radio,
+                icon: Handshake,
                 title: "Category builders",
                 body: "The earliest participants will help pressure-test the language, boundaries, and expectations around CauseTrade."
               }
@@ -339,10 +346,10 @@ export default function Home() {
               </p>
               <p className="text-white/76">This one should not have taken so long.</p>
             </div>
-            <p className="mt-10 font-display text-2xl text-aqua">Leave a signal.</p>
+            <p className="mt-10 font-display text-2xl text-aqua">Drop a signal.</p>
             <div className="mt-6 flex flex-wrap gap-3 text-sm text-white/58">
               <span className="rounded-full border border-white/10 px-4 py-2">
-                contact@causetrade.com
+                causetradeofficial@gmail.com
               </span>
               <span className="rounded-full border border-white/10 px-4 py-2">
                 Early circle forming
@@ -353,43 +360,30 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.12}>
-            <form className="glass rounded-lg p-6 sm:p-8">
-              <div className="grid gap-4">
-                <p className="text-sm uppercase tracking-[0.24em] text-white/46">
-                  Leave a signal.
+            <div className="glass rounded-lg p-6 text-center sm:p-8">
+              <div className="grid justify-items-center gap-4">
+                <p className="text-sm uppercase tracking-[0.24em] text-aurum">
+                  Contact
                 </p>
-                <label className="grid gap-2 text-sm text-white/62">
-                  Name
-                  <input
-                    className="h-12 rounded-md border border-white/10 bg-black/20 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-aqua/45"
-                    placeholder="Your name"
-                    type="text"
-                  />
-                </label>
-                <label className="grid gap-2 text-sm text-white/62">
-                  Email
-                  <input
-                    className="h-12 rounded-md border border-white/10 bg-black/20 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-aqua/45"
-                    placeholder="you@example.com"
-                    type="email"
-                  />
-                </label>
-                <label className="grid gap-2 text-sm text-white/62">
-                  Signal
-                  <textarea
-                    className="min-h-32 resize-none rounded-md border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/28 focus:border-aqua/45"
-                    placeholder="Tell us why CauseTrade caught your attention."
-                  />
-                </label>
-                <button
-                  className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-aqua px-6 text-sm font-medium text-void transition hover:bg-moss focus:outline-none focus:ring-2 focus:ring-aqua/70"
-                  type="button"
+                <h3 className="font-display text-3xl text-white">
+                  Reach out directly.
+                </h3>
+                <div className="max-w-md space-y-1 leading-8">
+                  <p className="text-white/62">
+                    For any information, questions, or early interest,
+                  </p>
+                  <p className="text-aqua">
+                    contact CauseTrade directly by email.
+                  </p>
+                </div>
+                <a
+                  href="mailto:causetradeofficial@gmail.com"
+                  className="inline-flex h-12 w-fit items-center rounded-full bg-aqua px-6 text-sm font-medium text-void shadow-[0_12px_34px_rgba(125,229,62,0.22)] transition hover:bg-moss focus:outline-none focus:ring-2 focus:ring-aqua/70"
                 >
-                  Send Signal
-                  <Sparkles className="h-4 w-4" />
-                </button>
+                  causetradeofficial@gmail.com
+                </a>
               </div>
-            </form>
+            </div>
           </Reveal>
         </div>
       </section>
